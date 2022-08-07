@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import img from '../assets/Images/me1.png';
 import styled from 'styled-components';
 
-const Box = styled(motion(NavLink))`
+const Box = styled(motion.a)`
   width: calc(10rem + 15vw);
   text-decoration: none;
   height: 20rem;
@@ -76,22 +76,19 @@ const Theme = (props) => {
   const { name, tags, date, imgSrc, link } = props.blog;
 
   return (
-    
-      <Container variants={Item}>
-        <Box target="_blank" to={{ pathname: link }}>
-          <Image img={imgSrc} />
-          <Title>{name}</Title>
-          <HashTags>
-            {tags.map((t, id) => {
-              return <Tag key={id}>#{t}</Tag>;
-            })}
-          </HashTags>
-          <Date>{date}</Date>
-        </Box>
-      </Container>
-      )
-    
-  
+    <Container variants={Item}>
+      <Box a href={'https://' + link}>
+        <Image img={imgSrc} />
+        <Title>{name}</Title>
+        <HashTags>
+          {tags.map((t, id) => {
+            return <Tag key={id}>#{t}</Tag>;
+          })}
+        </HashTags>
+        <Date>{date}</Date>
+      </Box>
+    </Container>
+  );
 };
 
 export default Theme;
