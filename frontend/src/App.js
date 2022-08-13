@@ -14,6 +14,7 @@ import Characteristics from './sections/Characteristics';
 import Album from './sections/Album';
 import ShowRoom from './sections/ShowRoom';
 import { Faq } from './sections/Faq';
+import SignIn from './sections/SignIn';
 function App() {
   const containerRef = useRef(null);
   return (
@@ -43,7 +44,9 @@ function App() {
               <Album />
               <Themes/>
               <ShowRoom />
+    
               <Faq/>
+              <SignIn />
     
       
 
