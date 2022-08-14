@@ -6,9 +6,10 @@ const Box = styled.div`
   display: flex;
   cursor: pointer;
   position: fixed;
-  left: 11rem;
-  top: 2rem;
+  left: 12rem;
+  top: 1.4rem;
   z-index: 10;
+ 
   & > *:nth-child(1) {
     animation-delay: 0.2s;
   }
@@ -39,11 +40,11 @@ const play = keyframes`
 `;
 const Line = styled.span`
   background: ${(props) => props.theme.text};
-  border: 1px solid ${(props) => props.theme.body};
+  border:1px solid ${props => props.theme.body};
   animation: ${play} 1s ease infinite;
   animation-play-state: ${(props) => (props.click ? 'running' : 'paused')};
-  height: 1rem;
-  width: 2px;
+  height: 1.5rem;
+  width: 3px;
   margin: 0 0.1rem;
 `;
 

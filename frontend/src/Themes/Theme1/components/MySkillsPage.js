@@ -4,7 +4,6 @@ import BigTitlte from '../subComponent/BigTitle';
 import LogoComponent from '../subComponent/LogoComponent';
 import PowerButtons from '../subComponent/PowerButtons';
 import Socialicons from '../subComponent/Socialicons';
-import SoundBar from '../subComponent/SoundBar';
 import { Design, Develope } from './AllSvg';
 import { LightTheme } from './Themes';
 const Box = styled.div`
@@ -22,7 +21,7 @@ color:${(props) => props.theme.text};
 background-color: ${(props) => props.theme.body};
 padding:3rem;
 width:30vw;
-height:65vh;
+height:70vh;
 z-index:3;
 line-height:1.5;
 cursor:pointer;
@@ -35,7 +34,7 @@ justify-content:center;
 &:hover{
   color:${(props) => props.theme.body};
   background-color:${(props) => props.theme.text};
-
+}
 `;
 const Title = styled.div`
   display: flex;
@@ -71,12 +70,13 @@ const Description = styled.div`
 function MySkillsPage() {
   return (
     <ThemeProvider theme={LightTheme}>
-      <Box>
         <LogoComponent theme="light" />
         <Socialicons theme="light" />
         <PowerButtons />
-        <SoundBar />
       
+      <Box>
+      
+       
         <Main>
           <Title>
             <Develope width={40} height={40} />

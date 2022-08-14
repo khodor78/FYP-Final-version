@@ -6,13 +6,14 @@ const Logo = styled.h1`
   display: inline-block;
   color: ${(props) =>
     props.color === 'dark' ? DarkTheme.text : DarkTheme.body};
-  font-family: 'Pacifico', cursive;
+   font-family: 'Pacifico', cursive;
   font-size:20px;
 
   position: fixed;
-  left: 2rem;
-  top: -2rem;
-  z-index: 3;
+  top:0.2em;
+  z-index: 5;
+  margin-left: 1rem;
+  margin-right:1rem;
 `;
 
 function LogoComponent(props) {

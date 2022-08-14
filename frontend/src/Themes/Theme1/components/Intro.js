@@ -49,7 +49,12 @@ const Text = styled.div`
 
   cursor: pointer;
   padding-left: 1rem;
-  & > *:last-child {
+  h1{
+ padding-bottom:2rem;
+ padding-top:2rem;
+  } 
+ & > *:last-child {
+  padding-top:2rem;
     color: ${(props) => `rgba(${props.theme.bodyRgba},0.6)`};
     font-size: calc(0.5rem + 1.5vw);
     font-weight: 300;

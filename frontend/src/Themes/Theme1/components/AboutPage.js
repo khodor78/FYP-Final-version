@@ -5,7 +5,6 @@ import { DarkTheme } from './Themes';
 import LogoComponent from '../subComponent/LogoComponent';
 import SocialIcons from '../subComponent/Socialicons';
 import PowerButton from '../subComponent/PowerButtons';
-//import ParticleComponent from '../subComponent/ParticleComponent';
 //import BigTitle from '../subComponents/BigTitlte'
 import astronaut from '../assets/Images/spaceman.png';
 import BigTitlte from '../subComponent/BigTitle';
@@ -38,7 +37,7 @@ const Main = styled.div`
   color: ${(props) => props.theme.text};
   padding: 2rem;
   width: 54vw;
-  height: 68vh;
+  height: 80vh;
   z-index: 3;
   line-height: 1.5;
   display: flex;

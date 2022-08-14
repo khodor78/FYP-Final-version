@@ -8,7 +8,7 @@ import { YinYang } from './AllSvg';
 import { motion } from 'framer-motion';
 import resume from './Khoder3.pdf';
 import Intro from './Intro';
-
+import "../App.css"
 const MainContaier = styled.div`
   background: ${(props) => props.theme.body};
   width: 100vw;
@@ -36,6 +36,13 @@ const Contact = styled(NavLink)`
   right: calc(1rem + 2vw);
   text-decoration: none;
   z-index: 1;
+  &:hover {
+    background-color: rgba(0, 255, 0, 0.4);
+    box-shadow:0 0 8px 6px rgba(0, 255, 0, 0.2);
+    color:black;
+    -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  }
 `;
 const Work = styled(NavLink)`
   color: ${(props) => (props.click ? props.theme.body : props.theme.text)};
@@ -44,6 +51,13 @@ const Work = styled(NavLink)`
   left: 2rem;
   transform: rotate(-90deg);
   text-decoration: none;
+  &:hover {
+    background-color: rgba(0, 255, 0, 0.4);
+    box-shadow:0 0 8px 6px rgba(0, 255, 0, 0.2);
+    color:black;
+    -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  }
 
   z-index: 1;
 `;
@@ -55,6 +69,13 @@ const Blog = styled(NavLink)`
   transform: rotate(90deg) translate(-50%, -50%);
   text-decoration: none;
   z-index: 1;
+  &:hover {
+    background-color: rgba(0, 255, 0, 0.4);
+    box-shadow:0 0 8px 6px rgba(0, 255, 0, 0.2);
+    color:black;
+    -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  }
 `;
 const BottomBar = styled.div`
   position: absolute;
@@ -69,11 +90,26 @@ const About = styled(NavLink)`
   color: ${(props) => (props.click ? props.theme.body : props.theme.text)};
   text-decoration: none;
   z-index: 1;
+  &:hover {
+    background-color: rgba(0, 255, 0, 0.4);
+    box-shadow:0 0 8px 6px rgba(0, 255, 0, 0.2);
+    color:black;
+    -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  }
 `;
 const Skills = styled(NavLink)`
   color: ${(props) => props.theme.text};
   text-decoration: none;
   z-index: 1;
+
+  &:hover {
+    background-color: rgba(0, 255, 0, 0.4);
+    box-shadow:0 0 8px 6px rgba(0, 255, 0, 0.2);
+    -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+    color:black;
+  }
 `;
 const rotate = keyframes`
 from {
@@ -126,6 +162,13 @@ font-weight: Border;
 font-style: italic;
 
 text-decoration: none;
+&:hover {
+    background-color: rgba(0, 255, 0, 0.4);
+    box-shadow:0 0 8px 6px rgba(0, 255, 0, 0.2);
+    color:black;
+    -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  }
 
 z-index: 1;
 `;
@@ -152,7 +195,7 @@ function Main() {
       <DarkDiv click={click} />
       <Container>
         <PowerButtons />
-        <LogoComponent theme={click ? 'dark' : 'light'} />
+        <LogoComponent   theme={click ? 'dark' : 'light'} />
         <Socialicons theme={click ? 'dark' : 'light'} />
 
         <Center click={click}>
@@ -160,8 +203,7 @@ function Main() {
             onClick={() => handleClick()}
             width={click ? 120 : 250}
             height={click ? 120 : 250}
-            fill="CurremtColor"
-          />
+            fill="" />
           <span>
             
             <Resume target="_blank" to={{ pathname: resume }}>
