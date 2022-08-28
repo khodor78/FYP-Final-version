@@ -12,6 +12,8 @@ function start() {
   return (
     <Routes>
       <Route path="/PortfolioBuilder" element={<PorfolioBuilder />} />
+      <Route path="/PortfolioBuilder/:id" element={<PorfolioBuilder />} />
+
       <Route path="/" element={<App />} />
       <Route path="/Theme1" element={<Index />} />
       <Route path="/Theme1/myskills" element={<MySkillsPage />} />

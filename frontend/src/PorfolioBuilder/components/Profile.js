@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {TextField, Button, Container} from '@material-ui/core';
-import {Card, CardHeader, CardContent} from '@material-ui/core';
+import React, { Component, useState } from 'react';
+import { TextField, Button, Container } from '@material-ui/core';
+import { Card, CardHeader, CardContent } from '@material-ui/core';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import EmailIcon from '@material-ui/icons/Email';
@@ -12,290 +12,79 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import {Row, Col} from 'react-bootstrap';
-import {Paper, withStyles, Grid} from '@material-ui/core';
+import { Row, Col } from 'react-bootstrap';
+import { Paper, withStyles, Grid } from '@material-ui/core';
+import SocialMedia from '../subComponents/SocialMedia';
+import PersonalDetails from '../subComponents/PersonalDetailsScreen';
+import { Navigate } from 'react-router-dom';
 
-const styles = theme => ({
+const styles = (theme) => ({
   margin: {
-    margin: theme.spacing.unit * 1,
+    margin: theme.spacing.unit *0.1,
   },
   padding: {
-    padding: theme.spacing.unit,
+    padding: theme.spacing.unit*0.1,
   },
 });
 
 class Profile extends Component {
+  
   continue = e => {
     e.preventDefault ();
     this.props.nextStep ();
+    this.navigate('/x')
   };
 
-  render () {
-    const {values} = this.props;
-    const {classes} = this.props;
+  render() {
+    const { values } = this.props;
+    const { classes } = this.props;
+    
     return (
+      <div className='hei'>
       <Paper className={classes.padding}>
         <Card>
           <CardHeader title="Personal Details" />
         </Card>
-        <CardContent>
-          <div className={classes.margin}>
-            <Grid container spacing={2} alignItems="center" lg={12}>
-              <Grid item md={6} sm={12} xs={12} lg={6}>
-                <TextField
-                  margin="dense"
-                  variant="outlined"
-                  name="firstname"
-                  label="First Name"
-                  style={{width: '80%'}}
-                  required
-                
-                />
-              </Grid>
-              <Grid item md={6} sm={12} xs={12} lg={6}>
-                <TextField
-                  margin="dense"
-                  label="Last Name"
-                  variant="outlined"
-                  style={{width: '80%'}}
-                  name="lastname"
-                  required
-                 
-                />
-              </Grid>
+        <PersonalDetails props={classes.margin} />
 
-              <Grid item md={6} sm={12} xs={12} lg={6}>
-                <TextField
-                  margin="dense"
-                  label="Email"
-                  variant="outlined"
-                  name="email"
-                  required
-                  style={{alignItems: 'left', width: '80%'}}
-              
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <EmailIcon />
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              </Grid>
-
-              <Grid item md={6} sm={12} xs={12} lg={6}>
-                <TextField
-                  margin="dense"
-                  label="Biography"
-                  variant="outlined"
-                  name="Text"
-                  required
-                  style={{alignItems: 'left', width: '80%'}}
-              
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <EmailIcon />
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              </Grid>
-              <Grid item md={6} sm={12} xs={12} lg={6}>
-                <TextField
-                  margin="dense"
-                  label="Characteristics"
-                  variant="outlined"
-                  name="Text"
-                  required
-                  style={{alignItems: 'left', width: '80%'}}
-              
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <EmailIcon />
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              </Grid>
-              <Grid item md={6} sm={12} xs={12} lg={6}>
-                <TextField
-                  margin="dense"
-                  label="Image"
-                  variant="outlined"
-                  name="Text"
-                  required
-                  style={{alignItems: 'left', width: '80%'}}
-              
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <EmailIcon />
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              </Grid>
-             
-          
-            </Grid>
-            
-            {/* <Button
+     
+              <Container className={classes.margin}>
+        <Row>
+          <Col lg={3} xs={0} />
+          <Col lg={3} xs={5}>
+            <Button
               variant="contained"
               color="secondary"
-              onClick={this.createAndDownloadPDF}
-              endIcon={<GetAppIcon />}
+              onClick={this.nextStep}
+              disabled
+              startIcon={<NavigateBeforeIcon />}
             >
-              Generate PDF
-            </Button> */}
-          </div>
-        </CardContent>
-
-
-        <Card>
-          <CardHeader title="Social Medias" />
-        </Card>
-        <CardContent>
-          <div className={classes.margin}>
-            <Grid container spacing={2} alignItems="center" lg={12}>
-           
-
-              <Grid item md={6} sm={12} xs={12} lg={6}>
-                <TextField
-                  margin="dense"
-                  label="GitHub"
-                  variant="outlined"
-                  name="github"
-                  style={{alignItems: 'left', width: '80%'}}
-            
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <GitHubIcon />
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              </Grid>
-              <Grid item md={6} sm={12} xs={12} lg={6}>
-                <TextField
-                  margin="dense"
-                  label="Linked In"
-                  variant="outlined"
-                  name="linkedin"
-                  style={{alignItems: 'left', width: '80%'}}
-            
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <LinkedInIcon />
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              </Grid>
-              <Grid item md={6} sm={12} xs={12} lg={6}>
-                <TextField
-                  margin="dense"
-                  label="Twitter"
-                  variant="outlined"
-                  name="twitter"
-                  style={{alignItems: 'left', width: '80%'}}
-                
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <TwitterIcon />
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              </Grid>
-              <Grid item md={6} sm={12} xs={12} lg={6}>
-                <TextField
-                  margin="dense"
-                  label="Facebook"
-                  variant="outlined"
-                  name="facebook"
-                  style={{alignItems: 'left', width: '80%'}}
-                 
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <FacebookIcon />
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              </Grid>
-              <Grid item md={6} sm={12} xs={12} lg={6}>
-                <TextField
-                  margin="dense"
-                  label="Instagram"
-                  variant="outlined"
-                  name="instagram"
-                  style={{alignItems: 'left', width: '80%'}}
-               
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <InstagramIcon />
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              </Grid>
-
-              
-
-             
+              Back
+            </Button>
+            </Col>
+          <Col lg={3} xs={5}>
+            <Button
+                variant="contained"
+                color="secondary"
+                onClick={this.continue}
+                endIcon={<NavigateNextIcon />}
+              >
+                Next
+              </Button>
+          </Col>
+          <Col lg={3} xs={5}>
           
-            </Grid>
-            <Container className={classes.margin}>
-              <Row>
-                <Col lg={3} xs={0} />
-                <Col lg={3} xs={5}>
-                  <Button
-                    variant="contained"
-                    color="secondary"
-                    onClick={this.nextStep}
-                    disabled
-                    startIcon={<NavigateBeforeIcon />}
-                  >
-                    Back
-                  </Button>
-                </Col>
-                <Col lg={3} xs={5}>
-                  <Button
-                    variant="contained"
-                    color="secondary"
-                    onClick={this.continue}
-                    endIcon={<NavigateNextIcon />}
-                  >
-                    Next
-                  </Button>
-                </Col>
-                <Col lg={3} xs={1} />
-              </Row>
-            </Container>
-            {/* <Button
-              variant="contained"
-              color="secondary"
-              onClick={this.createAndDownloadPDF}
-              endIcon={<GetAppIcon />}
-            >
-              Generate PDF
-            </Button> */}
-          </div>
-        </CardContent>
-
-
-
+        
+          </Col>
+          <Col lg={3} xs={1} />
+        </Row>
+      </Container>
         <p className="text-center text-muted">Page 1 </p>
       </Paper>
+      
+      </div>
     );
   }
 }
 
-export default withStyles (styles) (Profile);
+export default withStyles(styles)(Profile);

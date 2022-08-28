@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
+import { signout } from '../actions/userActions';
 const Container = styled.div`
   position: absolute;
   top: 1rem;
@@ -66,6 +68,12 @@ padding-bottom: 0.5rem;
 padding-left:0.7rem;
 `
 const Logo = () => {
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
+  const dispatch = useDispatch();
+  const signoutHandler = () => {
+    dispatch(signout());
+  };
   return (
     <Container>
       <Link to="/">
@@ -86,6 +94,8 @@ const Logo = () => {
         Because You’re Worth It
         </Text>
       </Link>
+
+     
     </Container>
   );
 };

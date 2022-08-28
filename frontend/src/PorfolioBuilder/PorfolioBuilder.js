@@ -10,7 +10,10 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { signout } from '../actions/userActions';
+import { Link } from 'react-router-dom';
+import { addToCart, removeFromCart } from '../actions/cartActions';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -24,11 +27,18 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export function App() {
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
+  const dispatch = useDispatch();
+  const signoutHandler = () => {
+    dispatch(signout());
+   
+  };
   const classes = useStyles();
   return (
     <div className="App">
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar className='color'>
           <IconButton
             edge="start"
             className={classes.menuButton}
@@ -40,7 +50,25 @@ export function App() {
           <Typography variant="h6" className={classes.title}>
             Portfolio Builder
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit">{userInfo ? (
+              <div className="dropdown">
+                <Link to="#">
+                  <div class="xx">
+                 {userInfo.user.name}<i className="fa fa-caret-down"></i>{' '}
+                 </div>
+                </Link>
+                
+                <ul className="dropdown-content">
+                  <li>
+                    <Link to="/" onClick={signoutHandler}>
+                      Sign Out
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <Link to="/signin">Sign In</Link>
+            )}</Button>
         </Toolbar>
       </AppBar>
       <Resume />

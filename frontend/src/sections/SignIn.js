@@ -1,24 +1,66 @@
-
-import React, { useState } from "react"
-import { Link } from "react-router-dom";
-import styled from "styled-components"
-import "../SignIn.css"
-
-
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { toast } from "react-toastify";
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import '../SignIn.css';
+import { register, signin } from '../actions/userActions';
+import LoadingBox from '../Components/LoadingBox';
+import MessageBox from '../Components/MessageBox';
+import { Button, Nav } from 'react-bootstrap';
+import Signup from './Signup';
+import {GoogleLogin} from 'react-google-login';
 function SignIn() {
-    const [switchToggle, setSwitchToggled] = useState(false);
+  const navigate = useNavigate();
+  const [switchToggle, setSwitchToggled] = useState(false);
 
-const [email, setEmail] = useState('');
-const [password, setPassword] = useState('');
-const [signupname, setNamesignup] = useState('');
-const [signupemail, setEmailsignup] = useState('');
-const [signuppass, setPasssignup] = useState('');
-const ToggleSwicth = () => {
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo, loading, error } = userSignin;
+
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const submitHandler = (e) => {
+    e.preventDefault();
+    // TODO: sign in action
+    dispatch(signin(email, password));
+  };
+  const googleSuccess = (resp) => {
+    const email = resp?.profileObj?.email;
+    const name = resp?.profileObj?.name;
+    const token = resp?.tokenId;
+    const googleId = resp?.googleId;
+    const result = { email, name, token, googleId };
+   
+  };
+  const googleFailure = (error) => {
+    toast.error(error);
+  };
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [signupname, setNamesignup] = useState('');
+  const [signupemail, setEmailsignup] = useState('');
+  const [signuppass, setPasssignup] = useState('');
+  const [signupconfrim, setConfirmpasssignup] = useState('');
+  const ToggleSwicth = () => {
     switchToggle ? setSwitchToggled(false) : setSwitchToggled(true);
     console.log(switchToggle);
   };
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate('/PortfolioBuilder');
+      window.location.reload();
+    }
+  }, [userInfo, navigate, location]);
+
+  const signupsubmitHandler = (e) => {
+    e.preventDefault();
+    if (signuppass !== signupconfrim) {
+      alert('Password and confirm password are not match');
+    } else dispatch(register(signupname, signupemail, signuppass));
+  };
+
   return (
-   
     <div>
       <div className="body">
         <div
@@ -27,49 +69,12 @@ const ToggleSwicth = () => {
           }
           id="main"
         >
-          <div className="sign-up">
-            <form >
-              <h1>Create Account</h1>
-              <div className="social-container">
-                <Link to="#" className="social">
-                  <i className="fab fa-facebook-f"></i>
-                </Link>
-                <Link to="#" className="social">
-                  <i className="fab fa-google-plus-g"></i>
-                </Link>
-                <Link to="#" className="social">
-                  <i className="fab fa-linkedin-in"></i>
-                </Link>
-              </div>
-              <p> or use your email for registiration</p>
-              <input
-                type="nmae"
-                name="signupname"
-                onChange={(e) => setNamesignup(e.target.value)}
-                placeholder="Name"
-                required
-              />
-              <input
-                type="email"
-                name="signupemail"
-                onChange={(e) => setEmailsignup(e.target.value)}
-                placeholder="Email"
-                required
-              />
-              <input
-                type="password"
-                onChange={(e) => setPasssignup(e.target.value)}
-                name="signuppass"
-                placeholder="Password"
-                required
-              />
-
-              <button>Sign-Up</button>
-            </form>
-          </div>
+          <Signup />
           <div className="sign-in">
-            <form >
+            <form onSubmit={submitHandler}>
               <h1> Sign in </h1>
+              {loading && <LoadingBox></LoadingBox>}
+              {error && <MessageBox variant="danger">{error}</MessageBox>}
               <div className="social-container">
                 <Link to="#" className="social">
                   <i className="fab fa-facebook-f"></i>
@@ -98,7 +103,11 @@ const ToggleSwicth = () => {
               />
 
               <button>Sign In</button>
+              <br/>
+              <br/>
+            
             </form>
+            
           </div>
           <div className="overlay-container">
             <div className="overlay">
@@ -121,8 +130,8 @@ const ToggleSwicth = () => {
           </div>
         </div>
       </div>
-    </div>  
-  )
+    </div>
+  );
 }
 
-export default SignIn
+export default SignIn;

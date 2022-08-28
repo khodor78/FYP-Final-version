@@ -4,6 +4,8 @@ import Education from './Education';
 import Projects from './Projects';
 import Experience from './Experience';
 import Extras from './Extras';
+import SocialMedia from '../subComponents/SocialMedia';
+import Social from './Social';
 
 export class Resume extends Component {
   state = {
@@ -36,22 +38,24 @@ export class Resume extends Component {
     
    
     switch (step) {
-      case 1:
-        return (
-          <div className="App mt-3">
-            <div className="container col-lg-10 mx-auto text-center">
-              <Profile
-                nextStep={this.nextStep}
-             
-              />
-            </div>
+    
+     case 1:
+      return (
+        <div className="App mt-3">
+          <div className="container col-lg-10 mx-auto text-center">
+            <Profile
+              nextStep={this.nextStep}
+              prevStep={this.prevStep}
+              handleChange={this.handleChange}
+            />
           </div>
-        );
-     //case 2 is removied
+        </div>
+      );
+      case 2:
         return (
           <div className="App mt-3">
             <div className="container col-lg-10 mx-auto text-center">
-              <Education
+              <Social 
                 nextStep={this.nextStep}
                 prevStep={this.prevStep}
                 handleChange={this.handleChange}
@@ -59,7 +63,9 @@ export class Resume extends Component {
             </div>
           </div>
         );
-      case 2:
+     //case 2 is removied
+   //case 2 is removied
+      case 3:
         return (
           <div className="App mt-3">
             <div className="container col-lg-8 mx-auto text-center">
@@ -71,7 +77,7 @@ export class Resume extends Component {
             </div>
           </div>
         );
-      case 3:
+      case 4:
         return (
           <div className="App mt-3">
             <div className="container col-lg-10 mx-auto text-center">
@@ -83,7 +89,7 @@ export class Resume extends Component {
             </div>
           </div>
         );
-      case 4:
+      case 5:
         return (
           <div className="App mt-3">
             <div className="container col-lg-10 mx-auto text-center">
