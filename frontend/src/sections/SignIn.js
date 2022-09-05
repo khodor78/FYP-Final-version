@@ -48,7 +48,7 @@ function SignIn() {
 
   useEffect(() => {
     if (userInfo) {
-      navigate('/PortfolioBuilder');
+      navigate('/Profile-Details');
       window.location.reload();
     }
   }, [userInfo, navigate, location]);

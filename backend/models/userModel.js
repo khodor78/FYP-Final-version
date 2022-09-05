@@ -22,8 +22,7 @@ const userSchema = new mongoose.Schema({
     minLength: [8, 'Password Should be greater than 8 Characters'],
     select: false,
   },
- 
-  
+
   role: {
     type: String,
     default: 'user',
@@ -31,8 +30,18 @@ const userSchema = new mongoose.Schema({
   personals: [
     { type: mongoose.Types.ObjectId, ref: 'personalDetails', required: true },
   ],
-
-
+  projectdetails: [
+    { type: mongoose.Types.ObjectId, ref: 'projectdetails', required: true },
+  ],
+  expereincedetails: [
+    { type: mongoose.Types.ObjectId, ref: 'expereincedetails', required: true },
+  ],
+  aboutdetails: [
+    { type: mongoose.Types.ObjectId, ref: 'aboutdetails', required: true },
+  ],
+  skilldetails: [
+    { type: mongoose.Types.ObjectId, ref: 'skilldetails', required: true },
+  ],
   resetPasswordToken: String,
   restPasswordExpire: Date,
 });

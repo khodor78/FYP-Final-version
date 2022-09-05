@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {TextField, Button, Container, Divider} from '@material-ui/core';
+import {TextField, Button, Container, Divider, AppBar, Toolbar, IconButton, Typography} from '@material-ui/core';
 import {Card, CardHeader, CardContent} from '@material-ui/core';
 import axios from 'axios';
 import DateRangeIcon from '@material-ui/icons/DateRange';
@@ -13,69 +13,119 @@ import {Row, Col} from 'react-bootstrap';
 import {Paper, withStyles, Grid} from '@material-ui/core';
 import { v4 as uuidv4 } from 'uuid';
 import Project from '../subComponents/Project';
-const styles = theme => ({
-  margin: {
-    margin: theme.spacing.unit * 1.5,
-  },
-  padding: {
-    padding: theme.spacing.unit,
-  },
-});
-
-class Projects extends Component {
-  continue = e => {
-    e.preventDefault ();
-    this.props.nextStep ();
-  };
-
-  back = e => {
-    e.preventDefault ();
-    this.props.prevStep ();
-  };
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { signout } from '../../actions/userActions';
+import MenuIcon from '@material-ui/icons/Menu';
 
 
 
-  render () {
-    const {values} = this.props;
-    const {classes} = this.props;
 
+function Projects() {
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
+  const dispatch = useDispatch();
+  const signoutHandler = () => {
+    dispatch(signout());
+  }
+  const Navigate = useNavigate();
+  const next = () =>{
+Navigate('/Experience-Details');
+  }
+  const back = () =>{
+    Navigate('/Profile-Details')
+  }
+  
     return (
-      <Paper className={classes.padding}>
+      <div>
+      <div className="App">
+      <AppBar position="static">
+        <Toolbar className='color'>
+          <IconButton
+            edge="start"
+            className="menubutton"
+            color="inherit"
+            aria-label="menu"
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" id="title" >
+            Portfolio Builder
+          </Typography>
+          <Button color="inherit">{userInfo ? (
+              <div className="dropdown">
+                <Link to="#">
+                  <div class="xx">
+                 {userInfo.user.name}<i className="fa fa-caret-down"></i>{' '}
+                 </div>
+                </Link>
+                
+                <ul className="dropdown-content">
+                  <li>
+                    <Link className='signout' to="/" onClick={signoutHandler}>
+                      Sign Out
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <Link to="/signin">Sign In</Link>
+            )}</Button>
+        </Toolbar>
+      </AppBar>
+     
+    </div>
+
+    <div className='hei'>
+      <Paper >
         <Card>
-          <CardHeader title="Projects Developed" />
+          <CardHeader id="title" title="Project Developed" />
         </Card>
-        <Project  props={classes.margin}/>
-        
-        <Container className={classes.margin}>
-          <Row>
-            <Col xs={4} />
-            <Col xs={2}>
-              <Button
-                variant="contained"
-                color="secondary"
-                onClick={this.back}
-                startIcon={<NavigateBeforeIcon />}
-              >
-                Back
-              </Button>
+        <Project  />
+       
+        <Container >
+          
+        <Row >
+ 
+          <Col lg={3} xs={0} />
+          <Col lg={5} xs={5}>
+          
+            <Button id="back"
+              variant="contained"
+              onClick={back}
+            
+              
+              startIcon={<NavigateBeforeIcon />}
+            >
+              Back
+            </Button>
             </Col>
-            <Col xs={2}>
-              <Button
+            <h4 id="pages" className="text-center">Page 2 </h4>
+          <Col lg={3} xs={5}>
+            <Button id="next"
                 variant="contained"
                 color="secondary"
-                onClick={this.continue}
+                onClick={next}
                 endIcon={<NavigateNextIcon />}
               >
                 Next
               </Button>
-            </Col>
-            <Col xs={4} />
-          </Row>
-        </Container>
-        <p className="text-center text-muted">Page 2</p>
+              
+          </Col>
+          <Col lg={3} xs={5}>
+          
+        
+          </Col>
+          <Col lg={3} xs={1} />
+
+        </Row>
+      </Container>
+       
       </Paper>
+      </div>
+      </div>
     );
   }
-}
 
-export default withStyles (styles) (Projects);
+
+export default Projects

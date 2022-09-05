@@ -7,17 +7,21 @@ import {
 } from '@material-ui/core';
 import React, { Children, useEffect, useState } from 'react';
 import {useRef} from 'react';
-
+import 'react-toastify/dist/ReactToastify.css';
+  // minified version is also included
 import EmailIcon from '@material-ui/icons/Email';
 import { useDispatch, useSelector } from 'react-redux';
 import { savePersonalDetails } from '../../actions/cartActions';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
 import Personal from '../fetching data/Personal';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { get } from 'mongoose';
 import Form from 'react-bootstrap/Form';
 import { CART_SAVE_SOCIAL_MEDIA_REQUEST } from '../../constants/cartConstants';
-
+import { Button, Col, Container, Row } from 'react-bootstrap';
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 
 const PersonalDetails =() => {
 //image
@@ -37,6 +41,7 @@ return data;
  
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
+
   const sendRequest = async () => {
     const res = await axios
       .get(`http://localhost:4000/api/personal/user/${userInfo.user._id}`)
@@ -133,6 +138,7 @@ useEffect(() => {
 fetchdata();
 
 const updateRequest = async() =>{
+  
   const res = await axios.put(`http://localhost:4000/api/personal/update/${filter}`,{
     firstname: inputs.firstname,
     lastname: inputs.lastname,
@@ -141,15 +147,44 @@ const updateRequest = async() =>{
     characteristics: inputs.Characteristics,
     image: Image,
  
-  }).catch((err)=>console.log(err));
+  }
+  )
   const data = await res.data;
   return data;
+  
+
 
 }
-const handleupdate = (e) => {
+const notitfy = (e)=>{
   e.preventDefault();
-;
-updateRequest()
+  toast.error('Please Fill All Data required', {
+    position: "top-right",
+    autoClose: 5003,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    });
+}
+const cant = (e)=>{
+  e.preventDefault();
+  toast.error('Access Only One Personal Detials!', {
+    position: "top-right",
+    autoClose: 5003,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    });
+}
+const handleupdate = (e) => { 
+   
+  
+  e.preventDefault();
+
+updateRequest();
   window.location.reload();
     
       
@@ -183,7 +218,11 @@ const [loadingUpload, setLoadingUpload] = useState(false);
 
 
   return (
-    <div>
+<div className="App mt-3">
+          <div className="container col-lg-10 mx-auto text-center">
+
+
+<div>
  
 
       <CardContent>
@@ -264,7 +303,7 @@ const [loadingUpload, setLoadingUpload] = useState(false);
                   value={inputs.Characteristics}
                   onChange={handleChange}
                   required
-                  style={{ alignItems: 'left', width: '80%' }}
+                  style={{ alignItems: 'left', width: '80%', paddingBottom:'14%', }}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
@@ -276,18 +315,23 @@ const [loadingUpload, setLoadingUpload] = useState(false);
               </Grid>
               <Grid item md={6} sm={12} xs={12} lg={6}>
                 <TextField
-                id="Image"
+               
                   margin="dense"
-                 disabled
+                label="Personal Image"
+
                   variant="outlined"
                   value={Image}
                   onChange={(e) => setImage(e.target.value)
                   
                   }
                   name="Image"
+                  defaultValue="Please Insert your Photo"
                   required
                   style={{ alignItems: 'left', width: '80%' }}
                   InputProps={{
+                    readOnly:true,
+                    
+
                     endAdornment: (
                       <InputAdornment position="end">
                         <EmailIcon />
@@ -297,7 +341,7 @@ const [loadingUpload, setLoadingUpload] = useState(false);
                 />
    <div>
               <label htmlFor="imageFile">Image File</label>
-              <input
+              <input style={{width:'87%',}}
                 type="file"
                 id="imageFile"
                 label="Choose Image"
@@ -310,6 +354,7 @@ const [loadingUpload, setLoadingUpload] = useState(false);
             </div>
               </Grid>
             </Grid>
+        
 
             <hr />
 
@@ -327,13 +372,14 @@ const [loadingUpload, setLoadingUpload] = useState(false);
 
 
 
-<button onClick={handleupdate} disabled={perosnalsx?.length>0?false:true} className="button2" >
+<button  onClick={(inputs.Characteristics ==="" || inputs.Biography==="" || Image===""||inputs.email==="" || inputs.firstname==="" || inputs.lastname==="")?notitfy:handleupdate} disabled={perosnalsx?.length>0 ?false:true} className="button2" >
             Update
           </button>
-
-<button disabled={perosnalsx?.length>0?true:false} className="button" type="submit">
-            Continue
+         
+<button  onClick={perosnalsx?.length>0?cant:""} className="button" type="submit">
+            Submit
           </button>
+          <ToastContainer />    
           </div>
         </form>
       </CardContent>
@@ -344,6 +390,7 @@ const [loadingUpload, setLoadingUpload] = useState(false);
           <div>
           
           <Personal
+    
           filteration={filterNames}
     Send = {getData}
             keyz={index}
@@ -358,8 +405,16 @@ const [loadingUpload, setLoadingUpload] = useState(false);
           </div>
         )
         )
+        
         }
+        
+       
+      
     </div>
+    </div>
+    
+    </div>
+    
   );
 };
 

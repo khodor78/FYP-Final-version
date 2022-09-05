@@ -1,5 +1,5 @@
 const multer = require('multer');
-const express = require('express')
+const express = require('express');
 const uploadRouter = express.Router();
 
 const storage = multer.diskStorage({
@@ -17,4 +17,3 @@ uploadRouter.post('/', upload.single('image'), (req, res) => {
   res.send(`${req.file.path.slice(24)}`);
 });
 module.exports = uploadRouter;
-

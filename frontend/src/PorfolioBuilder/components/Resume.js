@@ -69,7 +69,7 @@ export class Resume extends Component {
         return (
           <div className="App mt-3">
             <div className="container col-lg-8 mx-auto text-center">
-              <Projects
+              <Projects 
                 nextStep={this.nextStep}
                 prevStep={this.prevStep}
                 handleChange={this.handleChange}

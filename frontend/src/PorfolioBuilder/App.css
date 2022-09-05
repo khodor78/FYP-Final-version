@@ -19,14 +19,23 @@
   right: 0;
   min-width: 12rem;
   padding: 1rem;
-  z-index: 1;
+  z-index: 10;
   background-color: #203040;
   margin: 0;
+  color:white;
   margin-top: 0.4rem;
   border-radius: 0.5rem;
 }
+.dropdown-content li{
+  color:#203040;
+}
+.signout{
+  color:white;
+  text-decoration: none;
+}
 .dropdown:hover .dropdown-content {
   display: block;
+  color:#034f84
 }
 .noremove{
   display:none;
@@ -47,6 +56,37 @@
 .color{
   background-color:#034f84;
 }
+#title{
+margin-left:42%;
+margin-right:30%;
+}
+#back{
+  background-color: #034f84;
+  color:white;
+  position:fixed;
+  top:50%;
+left:2%
 
-
+}
+#next{
   
+  position:fixed;
+  top:50%;
+right:2%
+
+}
+#hei{
+  max-height:50%;
+}
+#pages{
+position: absolute;
+top:65%;
+left:0%;
+color:red;
+}
+#pagesabout{
+  position: absolute;
+  top:73%;
+  left:0%;
+  color:red;
+  }

@@ -1,90 +1,119 @@
 import React, { Component, useState } from 'react';
-import { TextField, Button, Container } from '@material-ui/core';
+import { TextField, Button, Container, AppBar, Toolbar, IconButton, Typography } from '@material-ui/core';
 import { Card, CardHeader, CardContent } from '@material-ui/core';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
-import EmailIcon from '@material-ui/icons/Email';
-import PhoneIcon from '@material-ui/icons/Phone';
-import LanguageIcon from '@material-ui/icons/Language';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import FacebookIcon from '@material-ui/icons/Facebook';
-import InstagramIcon from '@material-ui/icons/Instagram';
-import InputAdornment from '@material-ui/core/InputAdornment';
 import { Row, Col } from 'react-bootstrap';
 import { Paper, withStyles, Grid } from '@material-ui/core';
-import SocialMedia from '../subComponents/SocialMedia';
 import PersonalDetails from '../subComponents/PersonalDetailsScreen';
-import { Navigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import MenuIcon from '@material-ui/icons/Menu';
+import { useDispatch, useSelector } from 'react-redux';
+import { signout } from '../../actions/userActions';
 
-const styles = (theme) => ({
-  margin: {
-    margin: theme.spacing.unit *0.1,
-  },
-  padding: {
-    padding: theme.spacing.unit*0.1,
-  },
-});
 
-class Profile extends Component {
-  
-  continue = e => {
-    e.preventDefault ();
-    this.props.nextStep ();
-    this.navigate('/x')
-  };
 
-  render() {
-    const { values } = this.props;
-    const { classes } = this.props;
-    
+function Profile(){
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
+  const dispatch = useDispatch();
+  const signoutHandler = () => {
+    dispatch(signout());
+  }
+  const Navigate = useNavigate();
+  const next = () =>{
+Navigate('/Project-Details');
+  }
     return (
-      <div className='hei'>
-      <Paper className={classes.padding}>
+      <div>
+      <div className="App">
+      <AppBar position="static">
+        <Toolbar className='color'>
+          <IconButton
+            edge="start"
+            className="menubutton"
+            color="inherit"
+            aria-label="menu"
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" id="title" >
+            Portfolio Builder
+          </Typography>
+          <Button color="inherit">{userInfo ? (
+              <div className="dropdown">
+                <Link to="#">
+                  <div class="xx">
+                 {userInfo.user.name}<i className="fa fa-caret-down"></i>{' '}
+                 </div>
+                </Link>
+                
+                <ul className="dropdown-content">
+                  <li>
+                    <Link className='signout' to="/" onClick={signoutHandler}>
+                      Sign Out
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <Link to="/signin">Sign In</Link>
+            )}</Button>
+        </Toolbar>
+      </AppBar>
+     
+    </div>
+
+
+<div id='hei'>
+      <Paper  >
         <Card>
-          <CardHeader title="Personal Details" />
+          <CardHeader id="title" title="Personal Details" />
         </Card>
-        <PersonalDetails props={classes.margin} />
+        <PersonalDetails />
 
      
-              <Container className={classes.margin}>
-        <Row>
+              <Container >
+        <Row >
           <Col lg={3} xs={0} />
-          <Col lg={3} xs={5}>
-            <Button
+          <Col lg={5} xs={5}>
+            <Button id="back"
               variant="contained"
               color="secondary"
-              onClick={this.nextStep}
+            
               disabled
               startIcon={<NavigateBeforeIcon />}
             >
               Back
             </Button>
             </Col>
+            <h4 id="pages" className="text-center">Page 1 </h4>
           <Col lg={3} xs={5}>
-            <Button
+            <Button id="next"
                 variant="contained"
                 color="secondary"
-                onClick={this.continue}
+                onClick={next}
                 endIcon={<NavigateNextIcon />}
               >
                 Next
               </Button>
+              
           </Col>
           <Col lg={3} xs={5}>
           
         
           </Col>
           <Col lg={3} xs={1} />
+
         </Row>
       </Container>
-        <p className="text-center text-muted">Page 1 </p>
+       
       </Paper>
       
       </div>
+      </div>
     );
   }
-}
 
-export default withStyles(styles)(Profile);
+
+export default Profile

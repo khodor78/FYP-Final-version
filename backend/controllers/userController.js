@@ -11,7 +11,10 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
       email,
       password,
       personals: [],
-     
+     projectdetails: [],
+     expereincedetails: [],
+     aboutdetails:[],
+     skilldetails:[], 
     });
   
     sendToken(user, 201, res);

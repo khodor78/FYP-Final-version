@@ -7,12 +7,22 @@ import About from './Themes/Theme1/About';
 import WorkPage from './Themes/Theme1/Works';
 import Project from './Themes/Theme1/BLOGS';
 import PorfolioBuilder from './PorfolioBuilder/PorfolioBuilder';
+import Projects from './PorfolioBuilder/components/Projects';
+import Profile from './PorfolioBuilder/components/Profile';
+import Experience from './PorfolioBuilder/components/Experience';
+import AboutDetails from './PorfolioBuilder/components/About';
+import Skill from './PorfolioBuilder/components/Skill';
 
 function start() {
   return (
     <Routes>
-      <Route path="/PortfolioBuilder" element={<PorfolioBuilder />} />
-      <Route path="/PortfolioBuilder/:id" element={<PorfolioBuilder />} />
+      <Route path="/Profile-Details" element={<Profile />} />
+      <Route path="/Project-Details" element={<Projects />} />
+      <Route path="/Experience-Details" element={<Experience />} />
+      <Route path="/Skill-Details" element={<AboutDetails />} />
+      <Route path="/About-Details" element={<Skill />} />
+
+
 
       <Route path="/" element={<App />} />
       <Route path="/Theme1" element={<Index />} />
@@ -20,6 +30,7 @@ function start() {
       <Route path="/Theme1/about" element={<About />} />
       <Route path="/Theme1/work" element={<WorkPage />} />
       <Route path="/Theme1/blog" element={<Project />} />
+      
     </Routes>
   );
 }

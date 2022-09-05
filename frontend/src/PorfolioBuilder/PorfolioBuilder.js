@@ -12,8 +12,11 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { useDispatch, useSelector } from 'react-redux';
 import { signout } from '../actions/userActions';
-import { Link } from 'react-router-dom';
+import { Link, Route, Routes, useLocation, useSearchParams } from 'react-router-dom';
 import { addToCart, removeFromCart } from '../actions/cartActions';
+import Profile from './components/Profile';
+import Project from './subComponents/Project';
+import Projects from './components/Projects';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -34,6 +37,9 @@ export function App() {
     dispatch(signout());
    
   };
+  const { language } = useLocation();
+  const name = new URLSearchParams(language).get("name");
+  console.log(name);
   const classes = useStyles();
   return (
     <div className="App">
@@ -60,7 +66,7 @@ export function App() {
                 
                 <ul className="dropdown-content">
                   <li>
-                    <Link to="/" onClick={signoutHandler}>
+                    <Link className='signout' to="/" onClick={signoutHandler}>
                       Sign Out
                     </Link>
                   </li>
@@ -71,7 +77,7 @@ export function App() {
             )}</Button>
         </Toolbar>
       </AppBar>
-      <Resume />
+     
     </div>
   );
 }

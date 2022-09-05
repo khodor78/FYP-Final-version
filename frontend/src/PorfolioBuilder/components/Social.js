@@ -73,7 +73,7 @@ class Social extends Component {
           <Col lg={3} xs={1} />
         </Row>
       </Container>
-        <p className="text-center text-muted">Page 1 </p>
+        <p className="text-center text-muted">Page 3 </p>
       </Paper>
     );
   }
