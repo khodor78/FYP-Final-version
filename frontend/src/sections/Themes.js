@@ -72,7 +72,7 @@ const Themes = () => {
         }}
       >
         <Container>
-          <AnchorComponent number={numbers} />
+      
 
           <Center>
             <Grid>

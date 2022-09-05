@@ -20,3 +20,11 @@ code {
   background-color:
   #202020;
 }
+.try{
+  margin-right:8.8rem;
+}
+.picture{ width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
