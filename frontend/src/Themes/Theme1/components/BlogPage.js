@@ -37,6 +37,9 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, minmax(calc(10rem + 15vw), 1fr));
   grid-gap: calc(1rem + 2vw);
+  @media only screen and (max-width:1000px ){
+    grid-template-columns: repeat(1, minmax(calc(10rem + 15vw), 1fr));
+  }
 `;
 
 // Framer-motion config
@@ -71,7 +74,9 @@ const BlogPage = () => {
       }}
     >
       <Container>
+      
         <LogoComponent />
+ 
         <PowerButton />
         <SocialIcons />
         <AnchorComponent number={numbers} />

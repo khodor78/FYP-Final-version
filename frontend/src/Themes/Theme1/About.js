@@ -20,8 +20,7 @@ const App = () => {
     <ScrollToTop />
 
   <ThemeProvider theme={dark}>
-    <SoundBar  />
-    <AnimatePresence exitBeforeEnter>
+        <AnimatePresence exitBeforeEnter>
         <AboutPage />
         </AnimatePresence>
       </ThemeProvider>

@@ -14,8 +14,9 @@ const MainContaier = styled.div`
   width: 100vw;
   overflow-y: hidden; /* Hide vertical scrollbar */
   overflow-x: hidden;
-  height: 100vh;
+  max-height: 100vh;
   padding: 0;
+ 
 
   h2,
   h3,
@@ -29,34 +30,78 @@ const MainContaier = styled.div`
 const Container = styled.div`
   padding: 2rem;
 `;
-const Contact = styled(NavLink)`
+const Contact = styled.a`
   color: ${(props) => props.theme.text};
   position: absolute;
-  top: 2rem;
+  top: 1.2rem;
   right: calc(1rem + 2vw);
   text-decoration: none;
   z-index: 1;
+  --c: black; /* the color  */
+  --h: 2.5em;   /* the height */
+  
+  line-height: var(--h);  
+
+  color: black;
+  overflow: hidden;
+  text-shadow: 
+    0 calc(-1*var(--h)*var(--_i,0)) var(--c), 
+    0 calc(var(--h)*(1 - var(--_i,0))) #fff;
+  background: 
+    linear-gradient(var(--c) 0 0) no-repeat
+    calc(200% - var(--_i, 0) * 100%) 100% / 200% calc(100% * var(--_i, 0) + .08em);
+  transition: .3s calc(var(--_i, 0) * .3s), background-position .3s calc(.3s - calc(var(--_i, 0) * .3s));
+  @media only screen and (max-width:380px){
+right: ${(props) => (props.click ?'' :'-7%')};
+;
+
+}
   &:hover {
-    background-color: rgba(0, 255, 0, 0.4);
-    box-shadow:0 0 8px 6px rgba(0, 255, 0, 0.2);
-    color:black;
+    background-color: #C0C0C0;
+    box-shadow:0 0 8px 6px #C0C0C0;
+    color:white;
+    padding-left:1em;
+    padding-top:0.3em;
     -webkit-transition: all 1s ease;
   transition: all 1s ease;
+  --_i: 1;
   }
 `;
 const Work = styled(NavLink)`
   color: ${(props) => (props.click ? props.theme.body : props.theme.text)};
   position: absolute;
-  top: 46%;
-  left: 2rem;
-  transform: rotate(-90deg);
+  top: 48%;
+  left: 1rem;
+  transform: rotate(90deg) translate(-50%, -50%);
+
+  overflow: hidden;
   text-decoration: none;
+  --c: black; /* the color  */
+  --h: 2.5em;   /* the height */
+  
+  line-height: var(--h);  
+width:7rem; 
+  overflow: hidden;
+  text-shadow: 
+    0 calc(-1*var(--h)*var(--_i,0)) var(--c), 
+    0 calc(var(--h)*(1 - var(--_i,0))) #fff;
+  background: 
+    linear-gradient(var(--c) 0 0) no-repeat
+    calc(200% - var(--_i, 0) * 100%) 100% / 200% calc(100% * var(--_i, 0) + .08em);
+  transition: .3s calc(var(--_i, 0) * .3s), background-position .3s calc(.3s - calc(var(--_i, 0) * .3s));
+
+  @media only screen and (max-width:670px){
+
+left:-3rem;
+}
+
   &:hover {
-    background-color: rgba(0, 255, 0, 0.4);
-    box-shadow:0 0 8px 6px rgba(0, 255, 0, 0.2);
-    color:black;
-    -webkit-transition: all 1s ease;
-  transition: all 1s ease;
+    background-color: #C0C0C0;
+    box-shadow:0 0 8px 6px #C0C0C0;
+    color:white;
+    --_i: 1;
+    padding-left:0.7em;
+   
   }
 
   z-index: 1;
@@ -69,18 +114,38 @@ const Blog = styled(NavLink)`
   transform: rotate(90deg) translate(-50%, -50%);
   text-decoration: none;
   z-index: 1;
+  --c: black; /* the color  */
+  --h: 2.5em;   /* the height */
+  
+  line-height: var(--h);  
+  width:7.5em;
+  height:2.7em;
+  color: black;
+  overflow: hidden;
+  text-shadow: 
+    0 calc(-1*var(--h)*var(--_i,0)) var(--c), 
+    0 calc(var(--h)*(1 - var(--_i,0))) #fff;
+  background: 
+    linear-gradient(var(--c) 0 0) no-repeat
+    calc(200% - var(--_i, 0) * 100%) 100% / 200% calc(100% * var(--_i, 0) + .08em);
+  transition: .3s calc(var(--_i, 0) * .3s), background-position .3s calc(.3s - calc(var(--_i, 0) * .3s));
+  @media only screen and (max-width:466px){
+
+right:-1rem;
+}
   &:hover {
-    background-color: rgba(0, 255, 0, 0.4);
-    box-shadow:0 0 8px 6px rgba(0, 255, 0, 0.2);
-    color:black;
-    -webkit-transition: all 1s ease;
-  transition: all 1s ease;
+    --_i: 1;
+    padding-left:01em;
+    padding-top:0.3em;
+    color:white;
+    -webkit-transition: all 0.7s ease;
+  transition: all 0.7s ease;
   }
 `;
 const BottomBar = styled.div`
   position: absolute;
   bottom: 3rem;
-  left: 0;
+  left: 1rem;
   right: 0;
   width: 100%;
   display: flex;
@@ -90,25 +155,64 @@ const About = styled(NavLink)`
   color: ${(props) => (props.click ? props.theme.body : props.theme.text)};
   text-decoration: none;
   z-index: 1;
+  --c: black; /* the color  */
+  --h: 2.5em;   /* the height */
+  
+  line-height: var(--h);  
+  width:6em;
+  height:2.5em;
+
+  overflow: hidden;
+
+  text-shadow: 
+    0 calc(-1*var(--h)*var(--_i,0)) var(--c), 
+    0 calc(var(--h)*(1 - var(--_i,0))) #fff;
+  background: 
+    linear-gradient(var(--c) 0 0) no-repeat
+    calc(200% - var(--_i, 0) * 100%) 100% / 200% calc(100% * var(--_i, 0) + .08em);
+  transition: .3s calc(var(--_i, 0) * .3s), background-position .3s calc(.3s - calc(var(--_i, 0) * .3s));
+
   &:hover {
-    background-color: rgba(0, 255, 0, 0.4);
-    box-shadow:0 0 8px 6px rgba(0, 255, 0, 0.2);
-    color:black;
-    -webkit-transition: all 1s ease;
-  transition: all 1s ease;
+    color:white;
+    --_i: 1;
+    background-color: #C0C0C0;
+    box-shadow:0 0 8px 6px #C0C0C0;
+    padding-left:0.9em;
+    padding-top:0.2em;
+    -webkit-transition: all 0.7 ease;
+  transition: all 0.7 ease;
   }
 `;
 const Skills = styled(NavLink)`
   color: ${(props) => props.theme.text};
   text-decoration: none;
   z-index: 1;
+  --c: black; /* the color  */
+  --h: 2.5em;   /* the height */
+  
+  line-height: var(--h);  
+  width:6em;
+  
+  height:2.5em;
+  color: black;
+  overflow: hidden;
+  text-shadow: 
+    0 calc(-1*var(--h)*var(--_i,0)) var(--c), 
+    0 calc(var(--h)*(1 - var(--_i,0))) #fff;
+  background: 
+    linear-gradient(var(--c) 0 0) no-repeat
+    calc(200% - var(--_i, 0) * 100%) 100% / 200% calc(100% * var(--_i, 0) + .08em);
+  transition: .3s calc(var(--_i, 0) * .3s), background-position .3s calc(.3s - calc(var(--_i, 0) * .3s));
 
   &:hover {
-    background-color: rgba(0, 255, 0, 0.4);
-    box-shadow:0 0 8px 6px rgba(0, 255, 0, 0.2);
-    -webkit-transition: all 1s ease;
-  transition: all 1s ease;
-    color:black;
+    background-color: #C0C0C0;
+    box-shadow:0 0 8px 6px #C0C0C0;
+    -webkit-transition: all 0.7 ease;
+  transition: all 0.7 ease;
+    color:white;
+    --_i: 1;
+    padding-left:0.9em;
+    padding-top:0.2em;
   }
 `;
 const rotate = keyframes`
@@ -134,6 +238,10 @@ const Center = styled.button`
   justify-content: center;
   align-items: center;
   transition: all 1s ease;
+   @media only screen and (max-width:830px){
+   
+  }
+  
   & > :first-child {
     animation: ${rotate} infinite 1.5s linear;
   }
@@ -154,6 +262,21 @@ const DarkDiv = styled.div`
   height: ${(props) => (props.click ? '100%' : '0%')};
   z-index: 1;
   transition: height 0.5s ease, width 1s ease 0.5s;
+  @media only screen and (max-width:910px){
+
+min-height: 105vh;
+}
+
+  @media only screen and (max-width:617px){
+
+  min-height: 114vh;
+  }
+  @media only screen and (max-width:415px){
+
+min-height: 135vh;
+}
+
+  
 `;
 const Resume = styled(NavLink)`
 color: ${(props) => (props.click ? props.theme.body : props.theme.text)};
@@ -163,8 +286,7 @@ font-style: italic;
 
 text-decoration: none;
 &:hover {
-    background-color: rgba(0, 255, 0, 0.4);
-    box-shadow:0 0 8px 6px rgba(0, 255, 0, 0.2);
+
     color:black;
     -webkit-transition: all 1s ease;
   transition: all 1s ease;
@@ -199,7 +321,7 @@ function Main() {
         <Socialicons theme={click ? 'dark' : 'light'} />
 
         <Center click={click}>
-          <YinYang
+          <YinYang id="yin"
             onClick={() => handleClick()}
             width={click ? 120 : 250}
             height={click ? 120 : 250}
@@ -213,9 +335,7 @@ function Main() {
         </Center>
 
         <Contact
-          target="_blank"
-          to={{ pathname: 'mailto:Khoderhabbal36@gmail.com' }}
-        >
+          href="mailto:Khoderhabbal36@gmail.com">
           <motion.h2
             initial={{
               y: -200,

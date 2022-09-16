@@ -1,19 +1,20 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { PowerBtn } from '../components/AllSvg';
-import { NavLink } from 'react-router-dom';
+import { Navigate, NavLink, useNavigate } from 'react-router-dom';
 const Power = styled.button`
+z-index: -10;
   position: fixed;
   top: 2rem;
-  left: 50%;
-  transform: translate(-50%, 0);
+  left: 49%;
+
 
   background-color: #fcf6f4;
   padding: 0.3rem;
   border-radius: 50%;
   border: 1px solid #000;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3rem;
+  height: 3rem;
 
   display: flex;
   justify-content: center;
@@ -22,8 +23,8 @@ const Power = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: rgba(0, 255, 0, 0.4);
-    box-shadow:0 0 8px 6px rgba(0, 255, 0, 0.2);
+    background-color: silver;
+    box-shadow:0 0 8px 6px white;
   }
 
 &>*:first-child{
@@ -33,13 +34,16 @@ const Power = styled.button`
 }
 
 `;
-function PowerButtons() {
 
+function PowerButtons() {
+  const navigate = useNavigate();
+const change = () =>{
+  navigate('/Theme1');
+}
   return (
-    <Power>
-      <NavLink to="/Theme1">
+    <Power onClick={change}>
         <PowerBtn width={30} height={30} fill="" />
-      </NavLink>
+     
     </Power>
   );
 }

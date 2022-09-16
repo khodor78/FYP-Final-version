@@ -8,7 +8,7 @@ position: relative;
 const Slider = styled.div`
 position: fixed;
 top: 0;
-right: 2rem;
+right: 0rem;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -76,7 +76,7 @@ const AnchorComponent = () => {
                         return <Link key={id} width={25} height={25} fill='currentColor' className="chain" />
                     })
                 }
-                <Anchor width={100} height={100} fill='currentColor'/>
+                <Anchor  classname="Anchor" width={50} height={50} fill='currentColor'/>
             </Slider>
         </Container>
     )

@@ -243,7 +243,6 @@ class Profile extends Component {
             <Col xs={4} />
           </Row>
         </Container>
-        <p className="text-center text-muted">Page 2</p>
       </Paper>
     );
   }

@@ -92,7 +92,6 @@ Navigate('/Social-Media');
               Back
             </Button>
             </Col>
-            <h4 id="pagesabout" className="text-center">Page 5  </h4>
           <Col lg={3} xs={5}>
             <Button id="next"
                 variant="contained"

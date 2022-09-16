@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import x from "../assets/Images/one.png";
 import styled from 'styled-components';
 
 const Box = styled(motion(NavLink))`

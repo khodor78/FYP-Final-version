@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import Resume from './components/Resume';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';

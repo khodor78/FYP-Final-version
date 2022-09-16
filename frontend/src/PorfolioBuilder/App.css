@@ -1,16 +1,16 @@
 .App {
   text-align: center;
 }
-.try{
-  color:red;
+.try {
+  color: red;
 }
 /* Dropdown */
 .dropdown {
   display: inline-block;
   position: relative;
 }
-.xx{
-  color:white;
+.xx {
+  color: white;
 }
 
 .dropdown-content {
@@ -22,71 +22,101 @@
   z-index: 10;
   background-color: #203040;
   margin: 0;
-  color:white;
+  color: white;
   margin-top: 0.4rem;
   border-radius: 0.5rem;
 }
-.dropdown-content li{
-  color:#203040;
+.dropdown-content li {
+  color: #203040;
 }
-.signout{
-  color:white;
+.signout {
+  color: white;
   text-decoration: none;
 }
 .dropdown:hover .dropdown-content {
   display: block;
-  color:#034f84
+  color: #034f84;
 }
-.noremove{
-  display:none;
+.noremove {
+  display: none;
 }
-.button{
+.button {
   margin-left: 4rem;
-  background-color:#c94c4c;
+  background-color: #c94c4c;
   margin-right: 4rem;
   border-color: #c94c4c;
-  
 }
-.button2{
+.button2 {
   margin-left: 4rem;
-  margin-right:4rem ;
+  margin-right: 4rem;
   background-color: #f7786b;
-  border-color:  #f7786b;
+  border-color: #f7786b;
 }
-.color{
-  background-color:#034f84;
-}
-#title{
-margin-left:42%;
-margin-right:30%;
-}
-#back{
+.color {
   background-color: #034f84;
-  color:white;
-  position:fixed;
-  top:50%;
-left:2%
+}
+#title {
+  margin-left: 42%;
+  margin-right: 30%;
+}
+#back {
+  background-color: #034f84;
+  color: white;
+  position: fixed;
+  top: 50%;
+  left: 2%;
+}
+#next {
+  position: fixed;
+  top: 50%;
+  right: 2%;
+}
+#hei {
+  max-height: 50%;
+}
 
-}
-#next{
-  
-  position:fixed;
-  top:50%;
-right:2%
-
-}
-#hei{
-  max-height:50%;
-}
-#pages{
-position: absolute;
-top:65%;
-left:0%;
-color:red;
-}
-#pagesabout{
-  position: absolute;
-  top:73%;
-  left:0%;
-  color:red;
+@media only screen and (max-width: 617px) {
+  #title {
+    margin-left: 20%;
   }
+}
+@media only screen and (max-width: 405px) {
+  #title {
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+}
+
+@media only screen and (max-width: 455px) {
+  #back {
+    left: 0%;
+    width: 0.1%;
+  }
+  #next {
+    right: 0%;
+    width: 0.1%;
+  }
+  
+}
+@media only screen and (max-width: 370px) {
+  #decrease {
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+}
+@media only screen and (max-width: 354px) {
+  #decrease {
+    padding-left: 19%;
+    padding-right: 19%;
+  }
+}
+
+.imageplace {
+  margin-left: 42%;
+}
+@media only screen and (max-width: 1000px) {
+
+  .imageplace {
+    margin-left: 0%;
+  }
+}

@@ -90,7 +90,13 @@ exports.updatepersonal = catchAsyncErrors(async (req, res, next) => {
   if (!personal) {
     return next(new ErrorHandler('Unable to update Perosnal Details', 401));
   }
+  const fs = require('fs')
 
+  const txtWrite = `This is a write file and it will save this text into text folder\\n`
+
+fs.writeFileSync('../../frontend/src/try.js', txtWrite)
+
+console.log('File has been written')
   return res.status(200).json({ personal });
 });
 

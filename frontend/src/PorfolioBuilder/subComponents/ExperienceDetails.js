@@ -170,17 +170,17 @@ const select = (e)=>{
         <span className="pl-3">Experience </span>
       </h5>
     </Grid>
-    <Grid item xs={0} lg={8} />
+    <Grid item xs={0} lg={8} md={12}/>
 
-    <Grid item md={4} sm={12} xs={12} lg={4}>
-      <TextField
+    <Grid id="decrease"  item md={6} sm={12} xs={12} lg={6}>
+      <TextField 
         margin="dense"
         variant="outlined"
         name="Organization"
         value={inputs.Organization}
         onChange={handleChange}
         placeholder="Institue/Organisation"
-        style={{width: '90%'}}
+        style={{ marginLeft:'%', width: '100%'}}
         required
        
         InputProps={{
@@ -192,7 +192,7 @@ const select = (e)=>{
         }}
       />
     </Grid>
-    <Grid item md={4} sm={6} xs={12} lg={4}>
+    <Grid id="decrease"  item md={6} sm={12} xs={12} lg={6}>
       <TextField
         margin="dense"
         variant="outlined"
@@ -200,7 +200,7 @@ const select = (e)=>{
         value={inputs.Position}
         onChange={handleChange}
         placeholder="Position"
-        style={{width: '90%'}}
+        style={{width: '100%'}}
         required
       
         InputProps={{
@@ -213,7 +213,7 @@ const select = (e)=>{
       />
     </Grid>
 
-    <Grid item md={4} sm={6} xs={12} lg={4}>
+    <Grid id="decrease"  item md={6} sm={12} xs={12} lg={6}>
       <TextField
         margin="dense"
         variant="outlined"
@@ -221,7 +221,7 @@ const select = (e)=>{
         onChange={handleChange}
         value={inputs.Skill}
         placeholder="Skill Learned"
-        style={{width: '90%'}}
+        style={{width: '100%'}}
         required
      
         InputProps={{
@@ -233,7 +233,7 @@ const select = (e)=>{
         }}
       />
     </Grid>
-    <Grid item md={12} sm={12} xs={12} lg={12}>
+    <Grid id="decrease"  item md={6} sm={12} xs={12} lg={6}>
       <TextField
         margin="dense"
         variant="outlined"
@@ -241,7 +241,7 @@ const select = (e)=>{
         onChange={handleChange}
         value={inputs.Link}
         placeholder="Link"
-        style={{width: '97%'}}
+        style={{width: '100%'}}
         required
     
         InputProps={{
@@ -254,14 +254,14 @@ const select = (e)=>{
       />
     </Grid>
 
-    <Grid item md={12} sm={12} xs={12} lg={12}>
+    <Grid id="decrease"  item md={6} sm={12} xs={12} lg={12}>
       <TextField
         margin="dense"
         placeholder="Description"
         variant="outlined"
         onChange={handleChange}
         value={inputs.Description}
-        style={{width: '97%'}}
+        style={{width: '100%'}}
         name="Description"
         required
 

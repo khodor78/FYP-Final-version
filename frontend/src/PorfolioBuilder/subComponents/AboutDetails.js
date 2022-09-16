@@ -163,9 +163,9 @@ const select = (e)=>{
         <span className="pl-3">Skill </span>
       </h5>
     </Grid>
-    <Grid item xs={0} lg={8} />
+    <Grid item xs={0} lg={8} md={12}/>
 
-    <Grid item md={4} sm={12} xs={12} lg={4}>
+    <Grid id="decrease"  item md={6} sm={12} xs={12} lg={6}>
       <TextField
         margin="dense"
         variant="outlined"
@@ -173,7 +173,7 @@ const select = (e)=>{
         value={inputs.majorskill}
         onChange={handleChange}
         label="Specialized-Skill"
-        style={{width: '90%'}}
+        style={{width: '80%'}}
         required
        
         InputProps={{
@@ -185,7 +185,7 @@ const select = (e)=>{
         }}
       />
     </Grid>
-    <Grid item md={4} sm={6} xs={12} lg={4}>
+    <Grid id="decrease"  item md={6} sm={12} xs={12} lg={6}>
       <TextField
         margin="dense"
         variant="outlined"
@@ -193,7 +193,7 @@ const select = (e)=>{
         value={inputs.experience}
         onChange={handleChange}
         label="Skills"
-        style={{width: '90%'}}
+        style={{width: '80%'}}
         required
       
         InputProps={{
@@ -206,7 +206,7 @@ const select = (e)=>{
       />
     </Grid>
 
-    <Grid item md={4} sm={6} xs={12} lg={4}>
+    <Grid id="decrease"  item md={6} sm={12} xs={12} lg={6}>
       <TextField
         margin="dense"
         variant="outlined"
@@ -214,7 +214,7 @@ const select = (e)=>{
         onChange={handleChange}
         value={inputs.Future}
         label="Future Thing To Learn in this Skill"
-        style={{width: '90%'}}
+        style={{width: '80%'}}
         required
      
         InputProps={{
@@ -228,14 +228,14 @@ const select = (e)=>{
     </Grid>
    
 
-    <Grid item md={12} sm={12} xs={12} lg={12}>
+    <Grid id="decrease"  item md={6} sm={12} xs={12} lg={6}>
       <TextField
         margin="dense"
         label="Description"
         variant="outlined"
         onChange={handleChange}
         value={inputs.Description}
-        style={{width: '97%'}}
+        style={{width: '80%'}}
         name="Description"
         required
 
@@ -253,8 +253,7 @@ const select = (e)=>{
   <Divider />
   <br />
   
-  <br />
-  <br/><br/>
+ 
                   <button
                onClick={(ID==="")?select:(inputs.Title ==="" || inputs.Link==="" || Image===""||inputs.Description==="" || inputs.Tags==="" || inputs.Date==="")?notitfy:handleupdate} disabled={perosnalsx?.length>0 ?false:true} 
                  className="button2">Update</button>

@@ -4,8 +4,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import Start from './Start';
 import { BrowserRouter } from 'react-router-dom';
-import Characteristics from './sections/Characteristics';
-import Album from './sections/Album';
+import './PorfolioBuilder/App.css'
 import store from './store';
 
 ReactDOM.render(

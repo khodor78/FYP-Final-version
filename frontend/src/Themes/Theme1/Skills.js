@@ -19,7 +19,7 @@ const App = () => {
     <ScrollToTop />
 
   <ThemeProvider theme={LightTheme}>
-    <SoundBar  />
+
     <AnimatePresence exitBeforeEnter>
         <MySkillsPage />
         </AnimatePresence>

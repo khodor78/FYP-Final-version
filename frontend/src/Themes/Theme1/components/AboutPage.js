@@ -46,7 +46,14 @@ const Main = styled.div`
  margin-top:-4rem;
   font-size: calc(0.6rem + 1vw);
   backdrop-filter: blur(4px);
+  @media only screen and (max-width:551px){
+    font-size:12px;
+  padding-bottom:10%;
+  }
+  @media only screen and (max-width:391px){
+font-size:9px;
 
+  }
   position: absolute;
   left: calc(5rem + 5vw);
   top: 10rem;
