@@ -200,7 +200,7 @@ const handleupdate = (e) => {
             <form onSubmit={handleSubmit}>
               <div className={props}>
                 <Grid container spacing={2} alignItems="center" lg={12}>
-                  <Grid item md={6} sm={12} xs={12} lg={6}>
+                  <Grid id="decrease"  item md={6} sm={12} xs={12} lg={6}>
                     <TextField
                       margin="dense"
                       variant="outlined"
@@ -219,7 +219,7 @@ const handleupdate = (e) => {
                       }}
                     />
                   </Grid>
-                  <Grid item md={6} sm={12} xs={12} lg={6}>
+                  <Grid id="decrease"  item md={6} sm={12} xs={12} lg={6}>
                     <TextField
                       margin="dense"
                       variant="outlined"
@@ -239,7 +239,7 @@ const handleupdate = (e) => {
                     />
                   </Grid>
 
-                  <Grid item md={6} sm={12} xs={12} lg={6}>
+                  <Grid id="decrease"  item md={6} sm={12} xs={12} lg={6}>
                     <TextField
                       margin="dense"
                       variant="outlined"
@@ -258,7 +258,7 @@ const handleupdate = (e) => {
                       }}
                     />
                   </Grid>
-                  <Grid item md={6} sm={12} xs={12} lg={6}>
+                  <Grid id="decrease"  item md={6} sm={12} xs={12} lg={6}>
                     <TextField
                       margin="dense"
                       variant="outlined"
@@ -277,8 +277,9 @@ const handleupdate = (e) => {
                       }}
                     />
                   </Grid>
-                  <Grid item md={6} sm={12} xs={12} lg={6}>
+                  <Grid id="decrease"  item md={6} sm={12} xs={12} lg={6}>
                     <TextField
+                    id="decrease"
                       margin="dense"
                       variant="outlined"
                       name="Date"
@@ -289,7 +290,7 @@ const handleupdate = (e) => {
                       style={{
                         alignItems: 'left',
                         width: '80%',
-                        paddingBottom: '10.5%',
+                        
                       }}
                       required
                       InputProps={{
@@ -301,7 +302,7 @@ const handleupdate = (e) => {
                       }}
                     />
                   </Grid>
-                  <Grid item md={6} sm={12} xs={12} lg={6}>
+                  <Grid id="decrease"   item md={6} sm={12} xs={12} lg={6}>
                     <TextField
                       margin="dense"
                       variant="outlined"
@@ -319,12 +320,12 @@ const handleupdate = (e) => {
                           </InputAdornment>
                         ),
                       }}
-                    />
-                    <div>
-                      <label htmlFor="imageFile">Image File</label>
-                      <br />
+                    />                </Grid>
+                        </Grid>
+                   <div className='imageplace'>
+                <label htmlFor="imageFile">Image File</label>
                       <input
-                        style={{ width: '82%' }}
+                        style={{  width: '66%' }}
                         type="file"
                         id="imageFile"
                         label="Choose Image"
@@ -332,9 +333,10 @@ const handleupdate = (e) => {
                       ></input>
                       {loadingUpload}
                       {errorUpload}
-                    </div>
-                  </Grid>
-                </Grid>
+                      </div>
+                <hr />
+              
+
                 <br />
                 <button
                   onClick={(ID==="")?select:(inputs.Title ==="" || inputs.Link==="" || Image===""||inputs.Description==="" || inputs.Tags==="" || inputs.Date==="")?notitfy:handleupdate} disabled={perosnalsx?.length>0 ?false:true} 

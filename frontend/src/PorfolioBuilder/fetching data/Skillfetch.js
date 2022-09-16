@@ -59,6 +59,8 @@ props.filteration(props.id);
 };
 
 const TodoItemSTyled = styled.div`
+position: relative;
+
   background-color:	#034f84 ;
   padding-top:0.2rem;
   margin: 0rem 0;
@@ -95,16 +97,31 @@ const TodoItemSTyled = styled.div`
     flex: 1;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    @media only screen and (max-width: 1200px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
     padding: 0 1rem;
+  }
     .right-text {
       flex: 2;
     }
     .left-text {
       padding-right: 0rem;
     }
+  
+    .left-text p {
+    max-width: 80%;
   }
+
   .edit {
-    margin-right: 1rem;
+    position: absolute;
+    top: -5%;
+    right: 0;
+  }
+  .delete {
+    position: absolute;
+    top: -5%;
+    left: 0;
   }
 `;
 

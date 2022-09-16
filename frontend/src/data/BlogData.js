@@ -49,21 +49,6 @@ export const Blogs = [
 
     },
    
-    {
-        id:7,
-        name:"What is Redux ? Simply Explained!",
-        tags:["react","redux","javascript"],
-        date:"16 May, 2021",
-        imgSrc:'images/Skills.png',
-        link:"/Theme2"
-    },
-    {
-        id:8,
-        name:"How to create Sidebar navigation menu in ReactJS with react router and framer-motion",
-        tags:["react","framer-motion","styled-components"],
-        date:"26 May, 2021",
-        imgSrc:'images/Homeapges.png',
-        link:"Theme1"
-    },
+   
   
 ] 

@@ -9,9 +9,13 @@ const Icons = styled.div`
   flex-direction: column;
   align-items: center;
   position: fixed;
-  bottom: 0;
+  bottom: -6rem;
   left: 2rem;
   z-index: 3;
+  @media only screen and (max-width:577px){
+left:0rem;
+bottom:0rem;
+  }
 
   &>*:not(:last-child){
     margin:0.5rem 0;
@@ -19,8 +23,10 @@ const Icons = styled.div`
 `;
 const Line = styled.span`
   width: 2px;
+
   height: 8rem;
-  background-color: ${props=>props.color === 'dark' ? DarkTheme.text : DarkTheme.body };
+  background-color: ${(props)=>props.theme ==="dark" ? DarkTheme.text : DarkTheme.body };
+
 `;
 
 const Socialicons = (props) => {

@@ -75,6 +75,7 @@ const handleEdit = async() =>{
 
 const TodoItemSTyled = styled.div`
   background-color:	#034f84 ;
+  position: relative;
   padding-top:0.2rem;
   margin: 0rem 0;
   width: 100%;
@@ -109,17 +110,31 @@ const TodoItemSTyled = styled.div`
   .text-con {
     flex: 1;
     display: grid;
-    grid-template-columns: repeat(3, 5fr);
+    grid-template-columns: repeat(3, 1fr);
+    @media only screen and (max-width: 1200px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
     padding: 0 1rem;
     .right-text {
       flex: 2;
     }
+  }
     .left-text {
       padding-right: 0rem;
     }
+    .left-text p {
+    max-width: 80%;
   }
+
   .edit {
-    margin-right: 1rem;
+    position: absolute;
+    top: -5%;
+    right: 0;
+  }
+  .delete {
+    position: absolute;
+    top: -5%;
+    left: 0;
   }
 `;
 

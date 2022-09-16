@@ -13,7 +13,7 @@ export const Blogs = [
         tags:["react","Node","mongo"],
         date:"IN-Progress",
         imgSrc: '/Projects/Porftolio.png',
-        link:""
+        link:"dasd"
     },
     {
         id:3,
@@ -49,13 +49,24 @@ export const Blogs = [
 
     },
    
+    
     {
         id:7,
         name:"",
-        tags:["react","redux","javascript"],
-        date:"IN-Progress",
-        imgSrc: '/Projects/Dolive.png',
-        link:""
+        tags:["react","css"],
+        date:"5 Jan, 2021",
+        imgSrc: '/Projects/machine.png',
+        link:"/Projects/Project Machine learning.rar"
+
+    }, {
+        id:8,
+        name:"",
+        tags:["react","css"],
+        date:"5 Jan, 2021",
+        imgSrc: '/Projects/machine.png',
+        link:"/Projects/Project Machine learning.rar"
+
     },
+    
    
 ] 

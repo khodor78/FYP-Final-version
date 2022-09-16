@@ -20,7 +20,7 @@ const App = () => {
     <ScrollToTop />
 
   <ThemeProvider theme={LightTheme}>
-    <SoundBar  />
+ 
 <Main />
       </ThemeProvider>
 </>

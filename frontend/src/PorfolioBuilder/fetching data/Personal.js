@@ -6,56 +6,40 @@ import edit from './img/edit.svg';
 import axios from 'axios';
 
 import { useNavigate, useParams } from 'react-router-dom';
-const Personal = (
-  
-   props
-
-
-) => {
-
+const Personal = (props) => {
   const [disable, setdisable] = React.useState(false);
 
   const navigate = useNavigate();
   const deleteTodo = async () => {};
 
-
   const deleteRequest = async () => {
-const res = await axios.delete(`http://localhost:4000/api/personal/${props.id}`).catch((err)=>console.log(err));
-const data = await res.data;
-return data;
+    const res = await axios
+      .delete(`http://localhost:4000/api/personal/${props.id}`)
+      .catch((err) => console.log(err));
+    const data = await res.data;
+    return data;
   };
-const handleDelete = () =>{
-  deleteRequest()
-  .then(()=>{
-    
-    window.location.reload();
-    console.log(`${props.id}`)
+  const handleDelete = () => {
+    deleteRequest().then(() => {
+      window.location.reload();
+      console.log(`${props.id}`);
+    });
+  };
 
-  }
-  )
-}
-
-  
   const idx = useParams().id;
-  const handleEdit = ()=> {
-   
-    if(!idx){
-props.Send(props.id)
+  const handleEdit = () => {
+    if (!idx) {
+      props.Send(props.id);
     }
     props.filteration(props.id);
-    }
-const [filter,setFilter] =useState("");
-const filterhandler=(e) =>{
-setFilter(props.id);
-
-
-
-}
-props.filteration(props.id);
+  };
+  const [filter, setFilter] = useState('');
+  const filterhandler = (e) => {
+    setFilter(props.id);
+  };
+  props.filteration(props.id);
   return (
-    
     <TodoItemSTyled>
-      
       <div className="text-con">
         <div className="left-text">
           <h5>First-Name</h5>
@@ -79,7 +63,11 @@ props.filteration(props.id);
         </div>
         <div className="left-text">
           <h5>Image</h5>
-        <img className='picture' src={(`./uploads/${props.image}`)} alt={props.image} />
+          <img
+            className="picture"
+            src={`./uploads/${props.image}`}
+            alt={props.image}
+          />
         </div>
       </div>
       <div className="edit">
@@ -93,19 +81,20 @@ props.filteration(props.id);
 };
 
 const TodoItemSTyled = styled.div`
-  background-color:	#034f84 ;
-  padding-top:0.2rem;
+  position: relative;
+  background-color: #034f84;
+  padding-top: 0.2rem;
   margin: 0rem 0;
   width: 100%;
   border-radius: 30px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   color: white;
   &:last-child {
     margin-bottom: 1rem;
   }
- 
+
   h5 {
     color: #6bbe92;
   }
@@ -129,16 +118,30 @@ const TodoItemSTyled = styled.div`
     flex: 1;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    padding: 0 1rem;
-    .right-text {
-      flex: 2;
-    }
-    .left-text {
-      padding-right: 0rem;
+    @media only screen and (max-width: 1200px) {
+      grid-template-columns: repeat(1, 1fr);
     }
   }
+  padding: 0 1rem;
+  .right-text {
+    flex: 2;
+  }
+  .left-text {
+    padding-right: 0rem;
+  }
+  .left-text p {
+    max-width: 80%;
+  }
+
   .edit {
-    margin-right: 1rem;
+    position: absolute;
+    top: -5%;
+    right: 0;
+  }
+  .delete {
+    position: absolute;
+    top: -5%;
+    left: 0;
   }
 `;
 

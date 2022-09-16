@@ -7,21 +7,47 @@ import Socialicons from '../subComponent/Socialicons';
 import { Design, Develope } from './AllSvg';
 import { LightTheme } from './Themes';
 const Box = styled.div`
+
   background-color: ${(props) => props.theme.body};
   width: 100vw;
   height: 100vh;
   position: relative;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+display:grid;
+place-items:center center;
 `;
+const Card = styled.div`
+
+align-items: center;
+position:absolute;
+left:15%;
+top:10%;
+bottom:20%;
+right:10%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(500px,1fr));
+grid-gap:40px;
+@media only screen and (max-width:1270px){
+left:37%;
+top: 20%;
+right:10%;
+}
+@media only screen and (max-width:980px){
+left:20%;
+
+}
+@media only screen and (max-width:680px){
+left:10%;
+
+}
+`
 const Main = styled.div`
+opacity:0.9;
 border: 2px solid ${(props) => props.theme.text};
 color:${(props) => props.theme.text};
 background-color: ${(props) => props.theme.body};
 padding:3rem;
 width:30vw;
-height:70vh;
+height:80vh;
 z-index:3;
 line-height:1.5;
 cursor:pointer;
@@ -30,7 +56,9 @@ font-family:'Ubuntu Mono',monospace;
 display:flex;
 flex-direction:column;
 justify-content:center;
-
+@media only screen and (max-width:1270px){
+width:100%;
+}
 &:hover{
   color:${(props) => props.theme.body};
   background-color:${(props) => props.theme.text};
@@ -76,7 +104,7 @@ function MySkillsPage() {
       
       <Box>
       
-       
+       <Card>
         <Main>
           <Title>
             <Develope width={40} height={40} />
@@ -102,24 +130,92 @@ function MySkillsPage() {
         <Main>
           <Title>
             <Develope width={40} height={40} />
-          Web Developer 
+            Desktop Developer
           </Title>
           <Description>
-            I Love to create animated full-worked website 
+           I love to create System to provide the company with good reports to complete their tranaction
           </Description>
           <Description>
-            <strong>SKIlls</strong>
-            <p>HTML,CSS,JavaSCript,PHP,Monogo, Pyhton</p>
-          </Description>
-          <Description>
-            <strong>Future Thing to learn</strong>
+            <strong>Experience</strong>
             <ul>
-              <li> Machine Learning in Web server</li>
-              <li> A.I, Robotics</li>
-
+              <li> P.O.S System </li>
+              <li> Crud APP </li>
+            </ul>
+          </Description>
+          <Description>
+            <strong>Language</strong>
+            <ul>
+              <li> C# </li>
             </ul>
           </Description>
         </Main>
+        <Main>
+          <Title>
+            <Develope width={40} height={40} />
+            Desktop Developer
+          </Title>
+          <Description>
+           I love to create System to provide the company with good reports to complete their tranaction
+          </Description>
+          <Description>
+            <strong>Experience</strong>
+            <ul>
+              <li> P.O.S System </li>
+              <li> Crud APP </li>
+            </ul>
+          </Description>
+          <Description>
+            <strong>Language</strong>
+            <ul>
+              <li> C# </li>
+            </ul>
+          </Description>
+        </Main>
+        <Main>
+          <Title>
+            <Develope width={40} height={40} />
+            Desktop Developer
+          </Title>
+          <Description>
+           I love to create System to provide the company with good reports to complete their tranaction
+          </Description>
+          <Description>
+            <strong>Experience</strong>
+            <ul>
+              <li> P.O.S System </li>
+              <li> Crud APP </li>
+            </ul>
+          </Description>
+          <Description>
+            <strong>Language</strong>
+            <ul>
+              <li> C# </li>
+            </ul>
+          </Description>
+        </Main>
+        <Main>
+          <Title>
+            <Develope width={40} height={40} />
+            Desktop Developer
+          </Title>
+          <Description>
+           I love to create System to provide the company with good reports to complete their tranaction
+          </Description>
+          <Description>
+            <strong>Experience</strong>
+            <ul>
+              <li> P.O.S System </li>
+              <li> Crud APP </li>
+            </ul>
+          </Description>
+          <Description>
+            <strong>Language</strong>
+            <ul>
+              <li> C# </li>
+            </ul>
+          </Description>
+        </Main>
+        </Card>
         <BigTitlte text="SKILLS" top="67%" left="50%" />
       </Box>
     </ThemeProvider>

@@ -1,4 +1,4 @@
-import './App.css';
+
 import GlobalStyles from './styles/GLobalStyles';
 import { ThemeProvider } from 'styled-components';
 import { dark } from './styles/Theme';

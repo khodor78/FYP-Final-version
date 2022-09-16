@@ -216,7 +216,6 @@ class Experience extends Component {
 						Build Portfolio
 					</Button>
 				</Container>
-				<p className="text-center text-muted">Page 4</p>
 			</Paper>
 		);
 	}

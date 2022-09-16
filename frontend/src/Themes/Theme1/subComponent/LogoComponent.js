@@ -9,8 +9,8 @@ const Logo = styled.h1`
    font-family: 'Pacifico', cursive;
   font-size:20px;
 
-  position: fixed;
-  top:0.2em;
+  position: absolute;
+  top:1.45em;
   z-index: 5;
   margin-left: 1rem;
   margin-right:1rem;

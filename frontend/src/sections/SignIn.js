@@ -87,6 +87,7 @@ function SignIn() {
                 </Link>
               </div>
               <p> or use your Account</p>
+        
               <input
                 type="email"
                 name="email"
@@ -94,6 +95,7 @@ function SignIn() {
                 placeholder="Email"
                 required
               />
+              <br/>
               <input
                 type="password"
                 name="pswd"
@@ -101,7 +103,7 @@ function SignIn() {
                 placeholder="Password"
                 required
               />
-
+      <br/> 
               <button>Sign In</button>
               <br/>
               <br/>

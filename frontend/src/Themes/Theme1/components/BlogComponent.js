@@ -7,7 +7,7 @@ import styled from 'styled-components'
 const Box = styled(motion(NavLink))`
 width: calc(10rem + 15vw);
 text-decoration: none;
-height: 20rem;
+height: 30rem;
 padding: 1rem;
 color: ${props => props.theme.text};
 border: 2px solid ${props => props.theme.text};
@@ -21,6 +21,28 @@ z-index:5;
     color:${props => props.theme.body};
     background-color: ${props => props.theme.text};
     transition: all 0.3s ease;
+}
+@media only screen and (max-width:1000px ){
+    width: calc(10rem + 50vw);
+height:auto;
+
+}
+@media only screen and (max-width:879px ){
+    width: calc(10rem + 30vw);
+height:auto;
+
+}
+@media only screen and (max-width:555px ){
+    width: calc(10rem + 10vw);
+height:auto;
+
+
+}
+@media only screen and (max-width:410px ){
+   
+height:auto;
+margin-right:15%;
+
 }
 `
 
@@ -50,9 +72,14 @@ ${Box}:hover &{
 `
 const HashTags = styled.div`
 padding: 0.5rem 0;
-`
+@media only screen and (max-width:555px ){
+
+font-size:0.8rem;
+
+}`
 const Tag= styled.span`
 padding-right: 0.5rem;
+
 `
 const Date = styled.span`
 padding:0.5rem 0

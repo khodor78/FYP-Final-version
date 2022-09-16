@@ -1,16 +1,16 @@
-import React, { Component, useState } from 'react';
-import { TextField, Button, Container, AppBar, Toolbar, IconButton, Typography } from '@material-ui/core';
-import { Card, CardHeader, CardContent } from '@material-ui/core';
+import React, { Component } from 'react';
+import {  Button, Container, AppBar, Toolbar, IconButton, Typography } from '@material-ui/core';
+import { Card, CardHeader } from '@material-ui/core';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import { Row, Col } from 'react-bootstrap';
-import { Paper, withStyles, Grid } from '@material-ui/core';
+import { Paper} from '@material-ui/core';
 import PersonalDetails from '../subComponents/PersonalDetailsScreen';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import MenuIcon from '@material-ui/icons/Menu';
 import { useDispatch, useSelector } from 'react-redux';
 import { signout } from '../../actions/userActions';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function Profile(){
@@ -66,15 +66,15 @@ Navigate('/Project-Details');
 
 
 <div id='hei'>
-      <Paper  >
+      <Paper>
         <Card>
           <CardHeader id="title" title="Personal Details" />
         </Card>
         <PersonalDetails />
 
      
-              <Container >
-        <Row >
+              <Container>
+        <Row>
           <Col lg={3} xs={0} />
           <Col lg={5} xs={5}>
             <Button id="back"
@@ -87,7 +87,6 @@ Navigate('/Project-Details');
               Back
             </Button>
             </Col>
-            <h4 id="pages" className="text-center">Page 1 </h4>
           <Col lg={3} xs={5}>
             <Button id="next"
                 variant="contained"

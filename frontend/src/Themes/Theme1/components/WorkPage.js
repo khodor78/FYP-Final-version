@@ -19,10 +19,17 @@ const Box = styled.div`
   position: relative;
   display: flex;
   align-items: center;
+  padding:2rem;
 `;
-
+const Down = styled.div `
+position:absolute;
+top:5rem;
+`
 const Main = styled(motion.ul)`
   position: fixed;
+  @media only screen and (max-width:415px){
+  top:6rem
+  }
   top: 12rem;
   left: calc(10rem + 15vw);
   height: 40vh;
@@ -76,7 +83,10 @@ const WorkPage = () => {
     <ThemeProvider theme={DarkTheme}>
       <Box>
         <LogoComponent theme="dark" />
+        <Down>
         <SocialIcons theme="dark" />
+        </Down>
+        
         <PowerButton />
 
         <Main ref={ref} variants={container} initial="hidden" animate="show">
@@ -87,7 +97,7 @@ const WorkPage = () => {
         <Rotate ref={yinyang}>
           <YinYang width={80} height={80} fill={DarkTheme.text} />
         </Rotate>
-<BigTitlte text="Work" top='10%' right="20%" />
+<BigTitlte text="Work" top='70%' right="20%" />
        
       </Box>
     </ThemeProvider>

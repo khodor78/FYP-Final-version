@@ -4,7 +4,6 @@ import Theme from './Theme';
 import { Blogs } from '../data/BlogData';
 import { motion } from 'framer-motion';
 import img from '../assets/Images/one.png';
-import AnchorComponent from '../Components/Anchor';
 
 const Section = styled.section`
   width: 100%;

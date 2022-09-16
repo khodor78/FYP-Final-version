@@ -100,7 +100,6 @@ Navigate('/Experience-Details');
               Back
             </Button>
             </Col>
-            <h4 id="pages" className="text-center">Page 2 </h4>
           <Col lg={3} xs={5}>
             <Button id="next"
                 variant="contained"

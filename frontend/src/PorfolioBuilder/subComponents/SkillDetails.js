@@ -162,9 +162,8 @@ const select = (e)=>{
         <span className="pl-3">About </span>
       </h5>
     </Grid>
-    <Grid item xs={0} lg={8} />
-
-    <Grid item md={4} sm={12} xs={12} lg={12}>
+    <Grid item xs={0} lg={8} md={12}/>
+    <Grid id="decrease"  item md={6} sm={12} xs={12} lg={6}>
       <TextField
         margin="dense"
         variant="outlined"
@@ -172,7 +171,7 @@ const select = (e)=>{
         value={inputs.biography}
         onChange={handleChange}
         placeholder="Biography-Statment"
-        style={{width: '100%'}}
+        style={{width: '80%'}}
         required
        
         InputProps={{
@@ -184,7 +183,7 @@ const select = (e)=>{
         }}
       />
     </Grid>
-    <Grid item md={4} sm={6} xs={12} lg={12}>
+    <Grid id="decrease"  item md={6} sm={12} xs={12} lg={6}>
       <TextField
         margin="dense"
         variant="outlined"
@@ -192,7 +191,7 @@ const select = (e)=>{
         value={inputs.seeking}
         onChange={handleChange}
         placeholder="Seeking-Statment"
-        style={{width: '100%'}}
+        style={{width: '80%'}}
         required
       
         InputProps={{
@@ -205,15 +204,15 @@ const select = (e)=>{
       />
     </Grid>
 
-    <Grid item md={4} sm={6} xs={12} lg={12}>
-      <TextField
+    <Grid id="decrease"  item md={6} sm={12} xs={12} lg={6}>
+        <TextField
         margin="dense"
         variant="outlined"
         name="hubby"
         onChange={handleChange}
         value={inputs.hubby}
         placeholder="Huuby-Statment"
-        style={{width: '100%'}}
+        style={{width: '80%'}}
         required
      
         InputProps={{
@@ -227,14 +226,14 @@ const select = (e)=>{
     </Grid>
    
 
-    <Grid item md={12} sm={12} xs={12} lg={12}>
+    <Grid id="decrease"  item md={6} sm={12} xs={12} lg={6}>
       <TextField
         margin="dense"
         placeholder="Love-Things-Do-Statment"
         variant="outlined"
         onChange={handleChange}
         value={inputs.love}
-        style={{width: '100%'}}
+        style={{width: '80%'}}
         name="love"
         required
         InputProps={{

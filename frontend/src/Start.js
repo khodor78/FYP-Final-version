@@ -6,7 +6,6 @@ import MySkillsPage from './Themes/Theme1/Skills';
 import About from './Themes/Theme1/About';
 import WorkPage from './Themes/Theme1/Works';
 import Project from './Themes/Theme1/BLOGS';
-import PorfolioBuilder from './PorfolioBuilder/PorfolioBuilder';
 import Projects from './PorfolioBuilder/components/Projects';
 import Profile from './PorfolioBuilder/components/Profile';
 import Experience from './PorfolioBuilder/components/Experience';

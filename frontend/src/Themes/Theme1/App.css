@@ -13,20 +13,28 @@ body {
   }
   *,*::before,*::after,h1,h2,h3,h4,h5,h6{
     margin: 0;
-    padding: 0
-}
+    padding: 0;
+    
+  }
+ 
+  h1,h2,h3,h4,h5,h6{
+    font-family:monospace;
+    font-style: italic;
+    margin: 0;
+    padding: 0;
+  }
 body{
     margin:0;
     padding:0;
     overflow-x: hidden;
-    font-family: 'Source Sans Pro',sans-serif;
+  
 }
-  .pic {
-    position: absolute;
-    left: 625px;
-    top: 10px;
-    width: 620px;
-    height: 450px;
-    transition: height 5.5s ease, width 5s ease 0.5s;
-  }
- 
+
+  @media only screen and (max-width:400px ){
+ #yin{
+    width:8rem;
+ height:8rem;
+ }
+
+    
+}
